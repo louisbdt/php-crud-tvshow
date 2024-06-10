@@ -13,6 +13,8 @@ Class TvShow {
 
     private string $overview;
 
+    private int $posterId;
+
     public function getId(): int
     {
         return $this->id;
@@ -38,5 +40,9 @@ Class TvShow {
         return $this->overview;
     }
 
+    public function getPosterId(): int
+    {
+        return $this->posterId;
+    }
 
 }
