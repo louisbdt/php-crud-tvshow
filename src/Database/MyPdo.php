@@ -39,6 +39,7 @@ namespace Database;
  */
 final class MyPdo extends \PDO
 {
+
     /**
      * Instance unique de PDO.
      */
