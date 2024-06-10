@@ -1,9 +1,13 @@
 <?php
 
 declare(strict_types=1);
-Class TvShow {
 
-    private int $id;
+use Database\MyPdo;
+
+Class TvShow
+{
+
+    private ?int $id;
 
     private string $name;
 
@@ -43,6 +47,24 @@ Class TvShow {
     public function getPosterId(): int
     {
         return $this->posterId;
+    }
+
+    public static function findById(?int $id): TvShow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+                SELECT id, name, originalName, homepage, overview, posterId
+                FROM tvshow
+                WHERE id = :Id
+            SQL
+        );
+        $stmt->execute([":Id" => $id]);
+        $showId = $stmt->fetchObject(TvShow::class);
+        if ($showId === false) {
+            throw new EntityNotFoundException("Série introuvable");
+        }
+        return $showId;
+
     }
 
 }
