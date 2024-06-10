@@ -1,0 +1,18 @@
+{
+    "name": "lobr0013/php-crud-tvshow",
+    "description": "SAE",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "Lobr0013\\PhpCrudTvshow\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Romain Lobreau",
+            "email": "romain.lobreau@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {}
+}
