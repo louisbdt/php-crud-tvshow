@@ -6,7 +6,7 @@ namespace Entity\Collection;
 
 use Database\MyPdo;
 use TvShow;
-use Season;
+use Entity\Season;
 
 class SeasonCollection
 {
@@ -21,9 +21,6 @@ class SeasonCollection
         SQL);
         $stmt->execute([":tvshowID" =>$tvshowId]);
         return $stmt->fetchAll(\PDO::FETCH_CLASS, Season::class);
-
-
-
 
     }
 

@@ -26,11 +26,11 @@ class Poster
         }
         return $poster;
     }
-    public  function getId(): int
+    public function getId(): int
     {
         return $this->id;
     }
-    public  function getJpeg(): string
+    public function getJpeg(): string
     {
         return $this->jpeg;
     }
