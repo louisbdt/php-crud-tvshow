@@ -17,7 +17,7 @@ class TvshowCollection
         SQL
         );
         $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, tvshow::class);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, Tvshow::class);
     }
 
 
