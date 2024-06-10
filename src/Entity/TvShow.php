@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
 
 Class TvShow
 {
