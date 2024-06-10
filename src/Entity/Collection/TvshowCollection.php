@@ -5,7 +5,9 @@ namespace Entity\Collection;
 use Database\MyPdo;
 use Entity\TvShow;
 
-class TvShowCollection
+
+
+class TvshowCollection
 {
     public static function findAll() : array
     {
