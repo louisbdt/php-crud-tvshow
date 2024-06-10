@@ -2,11 +2,14 @@
 
 namespace Entity;
 
+use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
+
 class Season
 {
     private int $id;
 
-    protected int $tvShowId;
+    protected int $tvshowId;
 
     private string $name;
 
@@ -21,7 +24,7 @@ class Season
 
     public function getTvShowId(): int
     {
-        return $this->tvShowId;
+        return $this->tvshowId;
     }
 
     public function getName(): string
@@ -37,6 +40,23 @@ class Season
     public function getPosterId(): int
     {
         return $this->posterId;
+    }
+
+    public static function findById(int $id): Season
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+                SELECT id, tvshowId, name, seasonNumber, posterId
+                FROM season
+                WHERE id = :Id
+            SQL
+        );
+        $stmt->execute([":Id" => $id]);
+        $seasonId = $stmt->fetchObject(Season::class);
+        if ($seasonId === false) {
+            throw new EntityNotFoundException("Saison introuvable");
+        }
+        return $seasonId;
     }
 
 }
