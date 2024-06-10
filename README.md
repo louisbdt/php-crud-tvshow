@@ -1,7 +1,7 @@
 # SAÉ 2.01 - Développement d’une application
 
-- ### LOBREAU Romain 
-- ### BAUDAT Louis
+- ### LOBREAU Romain (lobr0013)
+- ### BAUDAT Louis (baud0156)
 
 ## Serveur Web Local
 Pour lancer le serveur web local, il suffit de lancer la commande suivante dans le répertoire du projet :
