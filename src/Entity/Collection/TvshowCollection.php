@@ -5,7 +5,7 @@ namespace Entity\Collection;
 use Database\MyPdo;
 use Entity\TvShow;
 
-class TvshowCollection
+class TvShowCollection
 {
     public static function findAll() : array
     {
@@ -17,7 +17,7 @@ class TvshowCollection
         SQL
         );
         $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, tvshow::class);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, TvShow::class);
     }
 
 
