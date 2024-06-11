@@ -26,14 +26,14 @@ $webpage = new \Html\AppWebPage();
 $webpage->setTitle("{$webpage->escapeString($tvshow->getName())}");
 
 
-$webpage->appendContent('<div class="List">');
+$webpage->appendContent('<div class="list">');
 
 $season = $tvshow->getSeason();
 
 $webpage->appendContent(
     <<<HTML
         <div class="showList">
-            <img src="poster.php?posterId={$tvshow->getPosterId()}">
+            <img class="poster2" src="poster.php?posterId={$tvshow->getPosterId()}">
             <div class="text">
                 <div class="show_titles">
                     <span class="show_name">{$tvshow->getName()}</span>
@@ -50,10 +50,10 @@ foreach ($season as $seasons) {
         <<<HTML
             <a class="link_season" href="http://localhost:8000/season.php?seasonId={$seasons->getId()}">
             <div class="season">
-                <img src="poster.php?posterId={$seasons->getPosterId()}">
+                <img class= "poster" src="poster.php?posterId={$seasons->getPosterId()}" alt="rien">
                 <span class="seasonTitle">{$seasons->getName()}</span>
             </div>
-            <a/>
+            </a>
        HTML
     );
 }
