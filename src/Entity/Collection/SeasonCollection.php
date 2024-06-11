@@ -19,9 +19,8 @@ class SeasonCollection
             WHERE tvshowId = :tvshowID
             ORDER BY seasonNumber
         SQL);
-        $stmt->execute([":tvshowID" =>$tvshowId]);
+        $stmt->execute(["tvshowID" =>$tvshowId]);
         return $stmt->fetchAll(\PDO::FETCH_CLASS, Season::class);
-
     }
 
 }

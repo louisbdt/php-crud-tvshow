@@ -7,10 +7,10 @@ use Entity\Exception\EntityNotFoundException;
 
 class Poster
 {
-    private int $id;
+    private ?int $id;
     private string $jpeg;
 
-    public static function findById(int $id)
+    public static function findById(?int $id)
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
