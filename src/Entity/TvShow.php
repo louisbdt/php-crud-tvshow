@@ -140,4 +140,15 @@ class TvShow
         return $this;
     }
 
+    public static function create(string $name, ?int $id = null, string $originalName, string $homepage, string $overview, ?int $posterId = null): TvShow
+    {
+        $tvshow = new TvShow();
+        $tvshow->setId($id);
+        $tvshow->setName($name);
+        $tvshow->setOriginalName($originalName);
+        $tvshow->setHomepage($homepage);
+        $tvshow->setOverview($overview);
+        return $tvshow;
+    }
+
 }
