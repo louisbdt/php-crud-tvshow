@@ -53,7 +53,7 @@ body{
 }
 
 .tv:hover,.link_season:hover ,.episodes:hover{
-    background-color: lightgray ;
+    background-color: #E3EBD0 ;
     transition: ease-in-out 50ms;
 }
 
