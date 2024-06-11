@@ -6,7 +6,9 @@ use Html\WebPage;
 
 class AppWebPage extends WebPage
 {
-    public function __construct($title = "")
+    private string $menu = "";
+
+    public function __construct(string $title = "")
     {
         parent::__construct($title);
         parent::appendCssUrl("/css/style.css");
@@ -25,14 +27,22 @@ class AppWebPage extends WebPage
         </head>
         <body>
             <div class="header"><h1>{$this->getTitle()}</h1></div>
+            <div class="menu">{$this->getMenu()}</div>
             <div class="content">{$this->getBody()}</div>
             <div class="footer" style = "font-style:italic">{$this->getLastModification()}</div>
         </body>
-            
-            
         </Html>
         HTML;
         return $html;
     }
 
+    public function appendButton(string $name, string $url): void
+    {
+        $this->menu .= "<a href='{$url}'>{$name}</a>";
+    }
+
+    public function getMenu(): string
+    {
+        return $this->menu;
+    }
 }
