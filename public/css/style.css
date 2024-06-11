@@ -12,13 +12,12 @@ body{
     flex-direction: column;
     justify-content: center;
 
-
-
 }
 
 .header {
     display: flex;
     justify-content: center;
+    text-align :center;
     border-style: solid;
     margin : 5px;
     text-decoration: underline;
@@ -53,7 +52,7 @@ body{
 
 }
 
-.tv:hover,.link_season:hover{
+.tv:hover,.link_season:hover ,.episodes:hover{
     background-color: lightgray ;
     transition: ease-in-out 50ms;
 }
@@ -122,12 +121,14 @@ body{
     flex-direction: column;
     font-size: large;
     text-decoration: underline;
+    align-self: flex-start;
 
 }
 
 .show_overview {
     align-items: flex-end;
     font-size : small;
+
 
 }
 
@@ -137,8 +138,9 @@ body{
 }
 
 .text {
-    flex-direction: column;
     margin :5px;
+    align-self: flex-start;
+
 
 }
 
@@ -163,8 +165,55 @@ body{
     justify-content: center;
     align-items: center;
     margin: 5px;
+
 }
 
+.seasonList{
+    display: flex;
+    border: solid black;
+    margin : 5px;
+    padding : 5px;
+    align-items: center;
+    row-gap: 10px;
+    justify-content: space-between;
+}
+
+.season_names{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    font-size: large;
+    text-decoration: none;
+    align-self: flex-start;
+}
+
+.season_names > a {
+    color : black;
+}
+
+.episodes {
+    display: flex;
+    border: solid black;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    font-size: smaller;
+    border-radius: 5px;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.title_number{
+    text-decoration: underline;
+    font-size: larger;
+    font-family: fantasy;
+}
+
+.episodes_overview{
+    font-family: fantasy;
+    font-size : initial;
+}
 
 @media only screen and (min-width:1000px) {
     div.tvshow:nth-child(even) a {

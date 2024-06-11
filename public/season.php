@@ -22,14 +22,14 @@ $webpage = new AppWebPage();
 
 $tvshow = TvShow::findById($season->getTvShowId());
 
-$webpage->setTitle($webpage->escapeString($tvshow->getName()).$webpage->escapeString($season->getName()));
+$webpage->setTitle($webpage->escapeString($tvshow->getName()). " : " .$webpage->escapeString($season->getName()));
 
 $webpage->appendButton("Accueil", "http://localhost:8000/index.php");
 
 $webpage->appendContent(
     <<<HTML
         <div class="seasonList">
-            <img src="poster.php?posterId={$season->getPosterId()}">
+            <div><img src="poster.php?posterId={$season->getPosterId()}"></div>
             <div class="season_names">
                     <a href="http://localhost:8000/tvshow.php?tvshowId={$season->getTvShowId()}">
                     <span class="tvshow_name">{$tvshow->getName()}</span>
@@ -47,8 +47,10 @@ foreach ($episodes as $episode) {
     $webpage->appendContent(
         <<<HTML
             <div class="episodes">
-                <span class="episode_number">{$episode->getEpisodeNumber()}</span>
+            <div class="title_number">
+                <span class="episode_number">{$episode->getEpisodeNumber()} -</span>
                 <span class="episode_title">{$episode->getName()}</span>
+            </div>    
                 <span class="episode_overview">{$episode->getOverview()}</span>
             </div>
         HTML
