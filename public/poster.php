@@ -16,7 +16,8 @@ try {
 } catch (ParameterException) {
 http_response_code(400);
 } catch (EntityNotFoundException) {
-http_response_code(404);
+    header('Content-Type; image/jpeg');
+    echo "img/default.png";
 } catch (Exception) {
 http_response_code(500);
 }
