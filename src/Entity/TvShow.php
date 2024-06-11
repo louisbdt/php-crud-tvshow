@@ -75,4 +75,56 @@ class TvShow
         return SeasonCollection::findByTvshowId($this->id);
     }
 
+    private function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setOriginalName(string $originalName): void
+    {
+        $this->originalName = $originalName;
+    }
+
+    public function setHomepage(string $homepage): void
+    {
+        $this->homepage = $homepage;
+    }
+
+    public function setOverview(string $overview): void
+    {
+        $this->overview = $overview;
+    }
+
+    public function setPosterId(int $posterId): void
+    {
+        $this->posterId = $posterId;
+    }
+
+    protected function update(): TvShow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<< 'SQL'
+            UPDATE tvshow
+            SET name = :name,
+                originalName = :originalName,
+                homepage = :homepage,
+                overview = :overview
+            WHERE id = :id
+            SQL);
+        $stmt->execute(
+                [':id' => $this->getId(),
+                ':name' => $this->getName(),
+                ':originalName' => $this->getOriginalName(),
+                ':homepage' => $this->getHomepage(),
+                 ':overview' => $this->getOverview()
+            ]
+        );
+        return $this;
+    }
+
 }
