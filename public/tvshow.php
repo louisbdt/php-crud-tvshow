@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Entity\TvShow;
 use Html\AppWebPage;
 
 if (isset($_GET['tvshowId']) && ctype_digit($_GET['tvshowId'])) {
@@ -11,12 +12,6 @@ if (isset($_GET['tvshowId']) && ctype_digit($_GET['tvshowId'])) {
     exit();
 }
 
-if (isset($_GET['seasonId']) && ctype_digit($_GET['seasonId'])) {
-    $seasonId = (int)$_GET['seasonId'];
-} else {
-    header('Location: index.php');
-    exit();
-}
 
 try {
     $tvshow = TvShow::findById($tvshowId);
@@ -25,29 +20,27 @@ try {
     exit();
 }
 
-try {
-    $season = \Entity\Season::findById($seasonId);
-} catch (\Entity\Exception\EntityNotFoundException) {
-    http_response_code(404);
-    exit();
-}
 
 $webpage = new \Html\AppWebPage();
 
-$webpage->setTitle("Séries TV : {$webpage->escapeString($tvshow->getName())}");
-
-$posterSeason = $season->getPosterId();
+$webpage->setTitle("{$webpage->escapeString($tvshow->getName())}");
 
 
 $webpage->appendContent('<div class="List">');
 
+$season = $tvshow->getSeason();
+
 $webpage->appendContent(
     <<<HTML
         <div class="showList">
-            <img src="poster.php?{$tvshow->getPosterId()}">
-            <span class="show_name">{$tvshow->getName()}</span>
-            <span class="show_originalName">{$tvshow->getOriginalName()}</span>
-            <span class="show_overview">{$tvshow->getOverview()}</span>
+            <img src="poster.php?posterId={$tvshow->getPosterId()}">
+            <div class="text">
+                <div class="show_titles">
+                    <span class="show_name">{$tvshow->getName()}</span>
+                    <span class="show_originalName">{$tvshow->getOriginalName()}</span>
+                </div>
+                <span class="show_overview">{$tvshow->getOverview()}</span>
+            </div>
         </div>
     HTML
 );
@@ -55,12 +48,16 @@ $webpage->appendContent(
 foreach ($season as $seasons) {
     $webpage->appendContent(
         <<<HTML
+            <a href="http://localhost8000/season.php?seasonId{$seasons->getId()}">
             <div class="season">
-                <img src="poster.php?posterId={$season->getPosterId()}">
-                <span class="seasonTitle">{$season->getName()}</span>
+                <img src="poster.php?posterId={$seasons->getPosterId()}">
+                <span class="seasonTitle">{$seasons->getName()}</span>
             </div>
        HTML
     );
 }
 
+$webpage->appendContent('</div>');
+
 echo $webpage->toHTML();
+

@@ -1,14 +1,15 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Collection\SeasonCollection;
 use Entity\Exception\EntityNotFoundException;
 
-Class TvShow
+class TvShow
 {
-
     private ?int $id;
 
     private string $name;
@@ -67,6 +68,10 @@ Class TvShow
         }
         return $showId;
 
+    }
+
+    public function getSeason(): array {
+        return SeasonCollection::findByTvshowId($this->id);
     }
 
 }
