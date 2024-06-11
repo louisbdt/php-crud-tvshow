@@ -13,11 +13,8 @@ try {
     }
     header('Content-Type: image/jpeg');
     echo $poster->getJpeg();
-} catch (ParameterException) {
-http_response_code(400);
-} catch (EntityNotFoundException) {
-    header('Content-Type; image/jpeg');
-    echo "img/default.png";
+} catch (EntityNotFoundException | ParameterException) {
+    header('Location: /img/default.png');
 } catch (Exception) {
 http_response_code(500);
 }
