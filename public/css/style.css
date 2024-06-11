@@ -30,7 +30,6 @@ body{
 }
 
 .content{
-
     overflow-y: scroll;
     flex-direction: column;
     justify-content: center;
@@ -54,12 +53,12 @@ body{
 
 }
 
-.tv:hover{
+.tv:hover,.link_season:hover{
     background-color: lightgray ;
     transition: ease-in-out 50ms;
 }
 
-a{
+.tv{
     display: flex;
     border: solid black;
     color: black;
@@ -96,8 +95,76 @@ a{
     height: 150px;
     width: 125px;
     align-items: center;
+}
+
+.poster2{
+    display : flex;
+    height: 250px;
+    width: 225px;
+    align-items: center;
+}
+
+
+.showList {
+    display: flex;
+    border: solid black;
+    margin : 5px;
+    padding : 5px;
+    align-items: center;
+    row-gap: 10px;
 
 }
+
+
+.show_titles {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    font-size: large;
+    text-decoration: underline;
+
+}
+
+.show_overview {
+    align-items: flex-end;
+    font-size : small;
+
+}
+
+.seasonTitle {
+    font-size: large;
+
+}
+
+.text {
+    flex-direction: column;
+    margin :5px;
+
+}
+
+.season {
+    display: flex;
+}
+
+.link_season {
+    display: flex;
+    border: solid black;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    font-size: smaller;
+    border-radius: 5px;
+
+}
+
+.seasonTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
 
 @media only screen and (min-width:1000px) {
     div.tvshow:nth-child(even) a {
@@ -114,8 +181,8 @@ a{
     }
 
     .poster {
-        height: 250px;
-        width: 225px;
+        height: initial;
+        width: initial;
     }
     .tvshow:nth-child(odd) .tvshow__ {
         align-items:start;
