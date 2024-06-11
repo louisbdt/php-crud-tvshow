@@ -1,9 +1,10 @@
 <?php
 
 declare(strict_types=1);
+namespace Entity;
 
-class Episode {
-
+class Episode
+{
     private int $id;
 
     protected int $seasonId;
@@ -38,6 +39,5 @@ class Episode {
     {
         return $this->episodeNumber;
     }
-
 
 }

@@ -3,7 +3,8 @@
 namespace Entity\Collection;
 
 use Database\MyPdo;
-use Episode;
+use Entity\Episode;
+
 class EpisodeCollection
 {
     public static function findBySeasonId($seasonId) : array
