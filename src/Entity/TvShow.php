@@ -127,4 +127,17 @@ class TvShow
         return $this;
     }
 
+    public function delete(): TvShow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<< 'SQL'
+            DELETE 
+            FROM tvshow
+            WHERE id = :id
+            SQL);
+        $stmt->execute([':id' => $this->getId()]);
+        $this->setId(null);
+        return $this;
+    }
+
 }
