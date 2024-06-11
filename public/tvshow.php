@@ -48,6 +48,7 @@ $webpage->appendContent(
 foreach ($season as $seasons) {
     $webpage->appendContent(
         <<<HTML
+            <a href="http://localhost8000/season.php?seasonId{$seasons->getId()}">
             <div class="season">
                 <img src="poster.php?posterId={$seasons->getPosterId()}">
                 <span class="seasonTitle">{$seasons->getName()}</span>
