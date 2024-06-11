@@ -150,7 +150,7 @@ class TvShow
         $tvshow->setOverview($overview);
         return $tvshow;
     }
-<<<<<<< HEAD
+
     protected function insert(): TvShow
     {
         $stmt = MyPdo::getInstance()->prepare(
@@ -181,7 +181,5 @@ class TvShow
         return $this;
     }
 
-=======
->>>>>>> 832417106f7ed91ff8b31c415a90327d3b8e5754
 
 }
