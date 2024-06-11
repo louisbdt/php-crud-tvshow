@@ -11,7 +11,6 @@ if (isset($_GET['seasonId']) && ctype_digit($_GET['seasonId'])) {
     exit();
 }
 
-
 try {
     $season = Season::findById($seasonId);
 } catch (\Entity\Exception\EntityNotFoundException) {
@@ -21,16 +20,19 @@ try {
 
 $webpage = new AppWebPage();
 
-$webpage->setTitle($webpage->escapeString($season->getName()));
+$tvshow = TvShow::findById($season->getTvShowId());
+
+$webpage->setTitle($webpage->escapeString($tvshow->getName()).$webpage->escapeString($season->getName()));
 
 $webpage->appendContent(
     <<<HTML
         <div class="seasonList">
             <img src="poster.php?posterId={$season->getPosterId()}">
             <div class="season_names">
-                    <a href="http://localhost:8000/tvshow.php?tvshowId={$season->getTvShowId()}" alt="">
-                    <span class="season_name">{$season->getName()}</span>
+                    <a href="http://localhost:8000/tvshow.php?tvshowId={$season->getTvShowId()}">
+                    <span class="tvshow_name">{$tvshow->getName()}</span>
                     </a>
+                    <span class="season_name">{$season->getName()}</span>
             </div>
         </div>
     HTML
@@ -43,7 +45,7 @@ foreach ($episodes as $episode) {
     $webpage->appendContent(
         <<<HTML
             <div class="episodes">
-                <span class="episode_number">{$episode->getId()}</span>
+                <span class="episode_number">{$episode->getEpisodeNumber()}</span>
                 <span class="episode_title">{$episode->getName()}</span>
                 <span class="episode_overview">{$episode->getOverview()}</span>
             </div>
