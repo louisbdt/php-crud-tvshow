@@ -11,8 +11,8 @@ $webPage->appendContent('<div class="list">');
 
 foreach ($line as $tvShow){
     $webPage->appendContent(<<<HTML
-<div>
-    <a class="TvShow" href="/tvshow.php?tvshowId={$tvShow->getId()}">
+<div class="tvshow">
+    <a class="tv" href="/tvshow.php?tvshowId={$tvShow->getId()}">
     <img class= "poster" src="poster.php?posterId={$tvShow->getPosterId()}" alt="Poster">
     <div class="tvshow__">
         <span class="name">{$webPage->escapeString($tvShow->getName())}</span>
