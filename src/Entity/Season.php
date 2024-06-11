@@ -16,7 +16,7 @@ class Season
 
     protected int $seasonNumber;
 
-    protected int $posterId;
+    protected ?int $posterId;
 
     public function getId(): int
     {
@@ -38,7 +38,7 @@ class Season
         return $this->seasonNumber;
     }
 
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }

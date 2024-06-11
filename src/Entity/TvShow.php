@@ -20,7 +20,7 @@ class TvShow
 
     private string $overview;
 
-    private int $posterId;
+    private ?int $posterId;
 
     public function getId(): int
     {
@@ -47,7 +47,7 @@ class TvShow
         return $this->overview;
     }
 
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
