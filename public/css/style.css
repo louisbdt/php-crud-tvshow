@@ -30,7 +30,10 @@ body{
 a > img{
     width: 100px;
     height : 100px;
-
+}
+a > img:nth-child(2){
+    width: 125px;
+    height: 100px;
 }
 
 .content{
@@ -237,6 +240,23 @@ form{
     text-align: left;
     row-gap: 5px;
 
+}
+.content > h1 {
+    text-align: center;
+    font-family: fantasy;
+    text-decoration: underline;
+}
+
+h1{
+    font-family: fantasy;
+}
+
+.menu{
+    display : flex;
+    align-items: center;
+    justify-content: space-around;
+    border-style: solid;
+    border-radius: 5px;
 
 
 }
