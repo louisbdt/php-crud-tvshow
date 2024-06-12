@@ -25,7 +25,13 @@ $webpage = new \Html\AppWebPage();
 
 $webpage->setTitle("{$webpage->escapeString($tvshow->getName())}");
 
+$webpage->appendContent('<div class="menu_img">');
+
 $webpage->appendButton("img/home.png", "http://localhost:8000/index.php");
+
+$webpage->appendButton("img/delete.png", "http://localhost:8000/admin/tvshow-delete.php");
+
+$webpage->appendContent('</div>');
 
 $webpage->appendContent('<div class="list">');
 
@@ -62,4 +68,3 @@ foreach ($season as $seasons) {
 $webpage->appendContent('</div>');
 
 echo $webpage->toHTML();
-
