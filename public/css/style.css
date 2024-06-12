@@ -233,7 +233,7 @@ form{
 .form_name,.form_original, .form_originalname ,.form_homepage, .form_overview, .form_poster {
     display : flex;
     flex-direction: column;
-    width: 450px;
+    width: 300px;
     text-align: left;
     row-gap: 5px;
 
@@ -268,6 +268,13 @@ form{
         align-items:end;
         margin :10px;
         text-align :right;
+
+    }
+    .form_name,.form_original, .form_originalname ,.form_homepage, .form_overview, .form_poster {
+        width: 450px;
+
+
+
 
     }
 
