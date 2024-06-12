@@ -17,7 +17,7 @@ if (isset($_GET['genre']) && ctype_digit($_GET['genre'])) {
 
 
 
-$webPage = new AppWebPage("TvShows");
+$webPage = new AppWebPage("Séries TV");
 
 $allgenre = GenreCollection::findAll();
 $webPage->appendContent(<<<HTML
