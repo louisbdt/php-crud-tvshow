@@ -25,6 +25,11 @@ body{
     border-radius: 0 30px 0 30px;
     box-shadow: 4px 4px 0 #E3EBD0;
 
+}
+
+a > img{
+    width: 100px;
+    height : 100px;
 
 }
 
@@ -215,6 +220,25 @@ body{
 .episodes_overview{
     font-family: fantasy;
     font-size : initial;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 5px;
+    align-items: center;
+    padding : 20px;
+}
+.form_name,.form_original, .form_originalname ,.form_homepage, .form_overview, .form_poster {
+    display : flex;
+    flex-direction: column;
+    width: 450px;
+    text-align: left;
+    row-gap: 5px;
+
+
+
 }
 
 @media only screen and (min-width:1000px) {

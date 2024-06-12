@@ -9,35 +9,35 @@ use Html\StringEscaper;
 class TvShowForm
 {
     use StringEscaper;
-    private ?TvShow $tvshow;
+    private ?TvShow $tvShow;
     public function __construct(TvShow $tvShow = null )
     {
         $this->tvShow = $tvShow;
     }
     public  function getTvshow(): ?TvShow
     {
-        return $this->tvshow;
+        return $this->tvShow;
     }
     public function getHtmlForm(string $action) : string
     {
         return <<<HTML
-        <h1>{$this->tvShow->getName()}</h1>
+        <h1>{$this->tvShow?->getName()}</h1>
         <form method="post" action="{$action}">
             <input name="id" type="hidden" value="{$this->tvShow?->getId()}">
                 <div class="form_name">
-                    <label for="nom">Nom Série</label>
+                    <label for="nom">Nom Série :</label>
                     <input name="name" type="text" value="{$this->escapeString($this->tvShow?->getName())}" required>
                 </div>
                 <div class="form_originalname">
-                    <label for="originalnom">Nom Original</label>
+                    <label for="originalnom">Nom Original :</label>
                     <input name="originalName" type="text" value="{$this->escapeString($this->tvShow?->getOriginalName())}" required>
                 </div>
                 <div class="form_homepage">
-                    <label for="accueilpage">HomePage</label>
+                    <label for="accueilpage">HomePage :</label>
                     <input name="homepage" type="text" value="{$this->escapeString($this->tvShow?->getHomepage())}" required>
                 </div>
                 <div class="form_overview">
-                    <label for="description">Résumé</label>
+                    <label for="description">Résumé :</label>
                     <input name="overview" type="text" value="{$this->escapeString($this->tvShow?->getOverview())}" required>
                 </div>
                 <div class="form_poster">
@@ -85,7 +85,7 @@ HTML;
             $posterId = null ;
         }
 
-        $this->tvShow = TvShow::create($id,$name,$originalName,$homepage, $overview, $posterId);
+        $this->tvShow = TvShow::create($name,$id,$originalName,$homepage, $overview, $posterId);
 
     }
 }

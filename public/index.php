@@ -7,6 +7,7 @@ use Html\AppWebPage;
 
 $webPage = new AppWebPage("TvShows");
 $line = TvshowCollection::findAll();
+$webPage->appendButton("img/ajout.png", "http://localhost:8000/admin/tvshow-form.php");
 $webPage->appendContent('<div class="list">');
 
 foreach ($line as $tvShow){

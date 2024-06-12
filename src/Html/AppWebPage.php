@@ -36,9 +36,9 @@ class AppWebPage extends WebPage
         return $html;
     }
 
-    public function appendButton(string $name, string $url): void
+    public function appendButton(string $logo, string $url): void
     {
-        $this->menu .= "<a href='{$url}'><img src='{$name}'></a>";
+        $this->menu .= "<a href='{$url}'><img src='{$logo}'></a>";
     }
 
     public function getMenu(): string

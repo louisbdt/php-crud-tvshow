@@ -22,7 +22,7 @@ class TvShow
 
     private ?int $posterId;
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -115,13 +115,14 @@ class TvShow
                 homepage = :homepage,
                 overview = :overview
             WHERE id = :id
-            SQL);
+            SQL
+        );
         $stmt->execute(
-                [':id' => $this->getId(),
+            [':id' => $this->getId(),
                 ':name' => $this->getName(),
                 ':originalName' => $this->getOriginalName(),
                 ':homepage' => $this->getHomepage(),
-                 ':overview' => $this->getOverview()
+                ':overview' => $this->getOverview()
             ]
         );
         return $this;
@@ -134,7 +135,8 @@ class TvShow
             DELETE 
             FROM tvshow
             WHERE id = :id
-            SQL);
+            SQL
+        );
         $stmt->execute([':id' => $this->getId()]);
         $this->setId(null);
         return $this;
@@ -155,18 +157,16 @@ class TvShow
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
-            INSERT INTO tvshow
+            INSERT INTO tvshow (name, originalName, homepage, overview)
             VALUES (:name, :originalName, :homepage, :overview)
             SQL
         );
-        $stmt->execute(
-            [':id' => $this->getId(),
-                ':name' => $this->getName(),
-                ':originalName' => $this->getOriginalName(),
-                ':homepage' => $this->getHomepage(),
-                ':overview' => $this->getOverview()
-            ]
-        );
+        $stmt->execute([
+            ':name' => $this->getName(),
+            ':originalName' => $this->getOriginalName(),
+            ':homepage' => $this->getHomepage(),
+            ':overview' => $this->getOverview()
+        ]);
         $this->setId((int)MyPdo::getInstance()->lastInsertId());
         return $this;
     }
