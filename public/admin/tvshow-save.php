@@ -1,9 +1,10 @@
 <?php
 
 use Entity\Exception\ParameterException;
+use Html\Form\TvShowForm;
 
 try {
-    $form = new \Html\Form\TvShowForm();
+    $form = new TvShowForm();
     $form->setEntityFromQueryString();
     $form->getTvshow()->save();
     header('Location: /index.php');

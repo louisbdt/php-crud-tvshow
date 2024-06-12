@@ -7,17 +7,17 @@ use Html\AppWebPage;
 use Html\Form\TvShowForm;
 
 try {
-    $artist = null;
+    $tvshow = null;
     if (isset($_GET["tvshowId"])) {
         if (ctype_digit($_GET["tvshowId"])) {
             $tvshowId = (int)$_GET["tvshowId"];
             $tvshow = TvShow::findById($tvshowId);
         } else {
-            throw new \Entity\Exception\ParameterException("Non conforme");
+            throw new ParameterException("Non conforme");
         }
     }
     $form = new TvShowForm($tvshow);
-    $page = new AppWebPage('TvSHow');
+    $page = new AppWebPage("Ajout d'un TvShow");
     $page->appendContent($form->getHtmlForm('tvshow-save.php'));
     echo $page->toHTML() ;
 } catch (ParameterException) {
