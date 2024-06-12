@@ -6,19 +6,43 @@ use Entity\Exception\ParameterException;
 use Entity\TvShow;
 use Html\StringEscaper;
 
+/**
+ * Clase de l'entité TvShowForm
+ */
+
 class TvShowForm
 {
     use StringEscaper;
+
+    /**
+     * @var TvShow|null
+     */
     private ?TvShow $tvShow;
-    public function __construct(TvShow $tvShow = null )
+
+    /**
+     * Constructeur d'une entité TvShow
+     * @param TvShow|null $tvShow
+     */
+    public function __construct(TvShow $tvShow = null)
     {
         $this->tvShow = $tvShow;
     }
-    public  function getTvshow(): ?TvShow
+
+    /**
+     * Getter de TvShow
+     * @return TvShow|null
+     */
+    public function getTvshow(): ?TvShow
     {
         return $this->tvShow;
     }
-    public function getHtmlForm(string $action) : string
+
+    /**
+     * Permet de créer un formulaire avec toutes les caractéristiques d'une série
+     * @param string $action
+     * @return string
+     */
+    public function getHtmlForm(string $action): string
     {
         return <<<HTML
         <h1>{$this->tvShow?->getName()}</h1>
@@ -50,9 +74,10 @@ HTML;
     }
 
     /**
+     * Permet d'associer les veleurs récupérer dans le formulaire aux attributs de TvShow. Lance une erreur ParameterException si il manque un paramêtre
      * @throws ParameterException
      */
-    public function setEntityFromQueryString() : void
+    public function setEntityFromQueryString(): void
     {
         if (isset($_POST['id']) && ctype_digit($_POST["id"])) {
             $id = $_POST['id'] ;
@@ -85,7 +110,7 @@ HTML;
             $posterId = null ;
         }
 
-        $this->tvShow = TvShow::create($name,$id,$originalName,$homepage, $overview, $posterId);
+        $this->tvShow = TvShow::create($name, $id, $originalName, $homepage, $overview, $posterId);
 
     }
 }

@@ -4,15 +4,30 @@ namespace Html;
 
 use Html\WebPage;
 
+/**
+ * Classe héritant de WebPage permettant de créer la structure html
+ */
 class AppWebPage extends WebPage
 {
+    /**
+     * @var string
+     */
     private string $menu = "";
 
+    /**
+     * Constructeur d'une WebPage avec le titre en paramêtre
+     * @param string $title
+     */
     public function __construct(string $title = "")
     {
         parent::__construct($title);
         parent::appendCssUrl("/css/style.css");
     }
+
+    /**
+     * Renvoie les attributs de l'entité WebPage sous forme html
+     * @return string
+     */
     public function toHTML(): string
     {
         $html = <<<HTML
@@ -36,11 +51,21 @@ class AppWebPage extends WebPage
         return $html;
     }
 
+    /**
+     * Permet d'ajouter un bouton à la page
+     * @param string $logo
+     * @param string $url
+     * @return void
+     */
     public function appendButton(string $logo, string $url): void
     {
         $this->menu .= "<a href='{$url}'><img src='{$logo}'></a>";
     }
 
+    /**
+     * Getter de menu
+     * @return string
+     */
     public function getMenu(): string
     {
         return $this->menu;
