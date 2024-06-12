@@ -31,7 +31,7 @@ $webpage->appendContent(
         <div class="seasonList">
             <div><img src="poster.php?posterId={$season->getPosterId()}"></div>
             <div class="season_names">
-                    <a href="http://localhost:8000/tvshow.php?tvshowId={$season->getTvShowId()}">
+                    <a href="{$tvshow->getHomepage()}">
                     <span class="tvshow_name">{$tvshow->getName()}</span>
                     </a>
                     <span class="season_name">{$season->getName()}</span>
@@ -39,7 +39,7 @@ $webpage->appendContent(
         </div>
     HTML
 );
-// <span class="season_show_name">{$seaso}</span> </a>
+
 
 $episodes = $season->getEpisode();
 
