@@ -6,6 +6,7 @@ html,body {
     height: 100%;
 }
 
+
 body{
     display: flex;
     gap: 10px;
@@ -23,17 +24,13 @@ body{
     text-decoration: underline;
     background-color: #F1F1D3;
     border-radius: 0 30px 0 30px;
-    box-shadow: 4px 4px 0 #E3EBD0;
+    box-shadow: 4px 4px 0 #919491;
 
 }
 
 a > img{
-    width: 100px;
-    height : 100px;
-}
-a > img:nth-child(2){
-    width: 125px;
-    height: 100px;
+    width: 75px;
+    height : 75px;
 }
 
 .content{
@@ -42,7 +39,7 @@ a > img:nth-child(2){
     justify-content: center;
     border-style: solid;
     border-radius : 5px;
-    box-shadow: 6px 6px 0 #E3EBD0;
+    box-shadow: 5px 5px 0 #a8ada8;
 }
 
 .list{
@@ -50,19 +47,21 @@ a > img:nth-child(2){
     flex-direction: column;
     row-gap: 5px;
     justify-content: center;
+    padding: 10px;
 
 }
 
 .footer{
     display: flex;
     justify-content: center;
-    border-style: solid;
-
 }
 
 .tv:hover,.link_season:hover ,.episodes:hover{
     background-color: #E3EBD0 ;
-    transition: ease-in-out 50ms;
+    transition: ease-in-out 75ms;
+    transform: scale(1.003);
+    box-shadow: 2px 2px 0 #bfc2bf;
+
 }
 
 .tv{
@@ -76,6 +75,9 @@ a > img:nth-child(2){
     font-size: smaller;
     align-items: center;
     border-radius: 5px;
+    transition-property: opacity, left, top, height;
+    transition-duration: 3s, 5s;
+    font-family: fantasy;
 
 }
 
@@ -84,6 +86,7 @@ a > img:nth-child(2){
     flex-direction: column;
     align-items: center;
     row-gap: 5px;
+    transition: all .2s ease-in-out;
 
 }
 
@@ -103,6 +106,7 @@ a > img:nth-child(2){
     height: 150px;
     width: 125px;
     align-items: center;
+    border-radius: 5px;
 }
 
 .poster2{
@@ -129,10 +133,16 @@ a > img:nth-child(2){
     align-items: flex-end;
     flex-direction: column;
     font-size: large;
-    text-decoration: underline;
+
     align-self: flex-start;
 
 }
+.show_name{
+    font-family: fantasy;
+    font-size: larger;
+    text-decoration: underline;
+}
+
 
 .show_overview {
     align-items: flex-end;
@@ -149,6 +159,7 @@ a > img:nth-child(2){
 .text {
     margin :5px;
     align-self: flex-start;
+    font-family: fantasy;
 
 }
 
@@ -219,6 +230,7 @@ a > img:nth-child(2){
     text-decoration: underline;
     font-size: larger;
     font-family: fantasy;
+    text-align: center;
 }
 
 .episodes_overview{
@@ -256,8 +268,6 @@ h1{
     display : flex;
     align-items: center;
     justify-content: space-around;
-    border-style: solid;
-    border-radius: 5px;
 }
 
 .box_filter{
@@ -278,15 +288,10 @@ h1{
     align-content: center;
     transition-property: opacity, left, top, height;
     transition-duration: 3s, 5s;
-
     background-color: #333;
     transition: all 0.5s ease-out
 }
-.rfilter:hover,
-.rfilter:focus {
-    color: #333;
-    background-color: #fff;
-}
+
 
 @media only screen and (min-width:1000px) {
     div.tvshow:nth-child(even) a {
@@ -320,9 +325,18 @@ h1{
     .form_name,.form_original, .form_originalname ,.form_homepage, .form_overview, .form_poster {
         width: 450px;
 
-
+    }
+    .rfilter:hover, .rfilter:focus {
+        color: white;
+        background-color : black;
 
 
     }
-
+    .rfilter{
+        color : black;
+        background-color : white;
+    }
+    .title_number{
+        text-align: initial;
+    }
 }
