@@ -24,7 +24,7 @@ $tvshow = TvShow::findById($season->getTvShowId());
 
 $webpage->setTitle($webpage->escapeString($tvshow->getName()). " : " .$webpage->escapeString($season->getName()));
 
-$webpage->appendButton("Accueil", "http://localhost:8000/index.php");
+$webpage->appendButton("img/home.png", "http://localhost:8000/index.php");
 
 $webpage->appendContent(
     <<<HTML
