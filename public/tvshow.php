@@ -29,7 +29,9 @@ $webpage->appendContent('<div class="menu_img">');
 
 $webpage->appendButton("img/home.png", "http://localhost:8000/index.php");
 
-$webpage->appendButton("img/delete.png", "http://localhost:8000/admin/tvshow-delete.php?tvshowId={$tvshow->getId()}");
+$webpage->appendButton("img/delete2.png", "http://localhost:8000/admin/tvshow-delete.php?tvshowId={$tvshow->getId()}");
+
+$webpage->appendButton("img/modif.png", "http://localhost:8000/admin/tvshow-form.php?tvshowId={$tvshow->getId()}");
 
 $webpage->appendContent('</div>');
 
