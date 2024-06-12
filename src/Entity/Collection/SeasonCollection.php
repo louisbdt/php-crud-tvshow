@@ -2,15 +2,13 @@
 
 namespace Entity\Collection;
 
-
-
 use Database\MyPdo;
-use TvShow;
+use Entity\TvShow;
 use Entity\Season;
 
 class SeasonCollection
 {
-    public static function findByTvshowId($tvshowId) : array
+    public static function findByTvshowId($tvshowId): array
     {
         $stmt = MyPdo::getInstance()->prepare(
             <<<'SQL'
@@ -18,8 +16,9 @@ class SeasonCollection
             FROM season
             WHERE tvshowId = :tvshowID
             ORDER BY seasonNumber
-        SQL);
-        $stmt->execute(["tvshowID" =>$tvshowId]);
+        SQL
+        );
+        $stmt->execute(["tvshowID" => $tvshowId]);
         return $stmt->fetchAll(\PDO::FETCH_CLASS, Season::class);
     }
 

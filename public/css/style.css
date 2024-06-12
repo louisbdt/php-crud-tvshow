@@ -257,8 +257,34 @@ h1{
     justify-content: space-around;
     border-style: solid;
     border-radius: 5px;
+}
 
+.box_filter{
+    display :flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+.rfilter{
+    text-decoration: none;
+    color : white;
+    font-family: fantasy;
+    padding :5px;
+    margin: 5px;
+    border-style: solid;
+    border-radius: 3px;
+    width: 200px;
+    align-content: center;
+    transition-property: opacity, left, top, height;
+    transition-duration: 3s, 5s;
 
+    background-color: #333;
+    transition: all 0.5s ease-out
+}
+.rfilter:hover,
+.rfilter:focus {
+    color: #333;
+    background-color: #fff;
 }
 
 @media only screen and (min-width:1000px) {
