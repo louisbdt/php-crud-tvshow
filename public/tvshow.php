@@ -25,7 +25,7 @@ $webpage = new \Html\AppWebPage();
 
 $webpage->setTitle("{$webpage->escapeString($tvshow->getName())}");
 
-$webpage->appendButton("Accueil", "http://localhost:8000/index.php");
+$webpage->appendButton("img/home.png", "http://localhost:8000/index.php");
 
 $webpage->appendContent('<div class="list">');
 
