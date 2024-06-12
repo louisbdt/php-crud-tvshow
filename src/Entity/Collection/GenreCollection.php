@@ -4,10 +4,19 @@ namespace Entity\Collection;
 
 use Database\MyPdo;
 use Entity\Genre;
-use Entity\TvShow;
 
+
+/**
+ * Classe permettant de retrouver la liste des genres
+ * On retrouve une unique fonction qui permet de trouver les saisons à partir de leur Id
+
+ */
 class GenreCollection
 {
+    /**
+     * Selectionne à partir d'une requête SQL tous les Genres présentes dans la base de données
+     * @return array Retourne un tableau avec tous les genres
+     */
     public static function findAll(): array
     {
         $stmt = MyPdo::getInstance()->prepare(

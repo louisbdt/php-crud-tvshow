@@ -3,11 +3,17 @@
 namespace Entity\Collection;
 
 use Database\MyPdo;
-use Entity\Genre;
 use Entity\TvShow;
 
+/**
+* Classe permettant de retourner un tableau de série
+ */
 class TvshowCollection
 {
+    /**
+     * Permet de retourner à partir de la base SQL, toutes les séries qui y sont présentes
+     * @return array Retourne un tableau de toutes les séries
+     */
     public static function findAll(): array
     {
         $stmt = MyPdo::getInstance()->prepare(
@@ -21,6 +27,11 @@ class TvshowCollection
         return $stmt->fetchAll(\PDO::FETCH_CLASS, TvShow::class);
     }
 
+    /**
+     * Permet de retourner les séries à partir de leur genre
+     * @param $genreId Id du genre
+     * @return array Retourne un tableau des séries triées
+     */
     public static function findByGenreId($genreId): array
     {
         $stmt = MyPdo::getInstance()->prepare(
